@@ -1,0 +1,57 @@
+<section class="personal-page">
+  <div class="header text-center">
+    <h1 class="text-gradient">Metamorphosis</h1>
+    <p class="text-secondary subtitle">Travel, Learnings & Personal Growth</p>
+  </div>
+
+  <div class="content-grid">
+    <!-- Travel Section with Static Data -->
+    <div class="travel-card glass-panel full-width">
+      <div class="card-header">
+        <h2><span class="material-icons">flight_takeoff</span> Travel Diaries</h2>
+        <span class="text-secondary">Curated adventures</span>
+      </div>
+      
+      <div class="photo-grid">
+        @if (dataService.travelEntries().length === 0) {
+          <div class="photo-item empty-state">
+            <span class="material-icons">image</span>
+            <p>No photos processed yet.</p>
+            <p style="font-size: 0.8rem">Run scripts/process-travel.js</p>
+          </div>
+        } @else {
+          @for (entry of dataService.travelEntries(); track entry.id) {
+            <div class="photo-item">
+              <img [src]="entry.photoPath" [alt]="entry.semanticLocation" class="travel-photo">
+              <div class="photo-meta">
+                <span class="location"><span class="material-icons">place</span> {{ entry.semanticLocation }}</span>
+                <span class="date">{{ entry.timestamp | date:'mediumDate' }}</span>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+
+    <!-- Personal Learnings -->
+    <div class="learnings-card glass-panel full-width mt-4">
+      <h2><span class="material-icons">menu_book</span> Personal Learnings</h2>
+      <div class="learning-list">
+        <div class="learning-item">
+          <div class="icon-wrap"><span class="material-icons">psychology</span></div>
+          <div class="text">
+            <h4>Continuous Growth</h4>
+            <p class="text-secondary">Embracing challenges as opportunities to learn and evolve in both technology and life.</p>
+          </div>
+        </div>
+        <div class="learning-item">
+          <div class="icon-wrap"><span class="material-icons">balance</span></div>
+          <div class="text">
+            <h4>Work-Life Harmony</h4>
+            <p class="text-secondary">Finding the right balance between building scalable enterprise solutions and exploring the world.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

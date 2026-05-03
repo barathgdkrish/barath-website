@@ -1,0 +1,27 @@
+<nav class="navbar glass-panel">
+  <div class="nav-container">
+    <a routerLink="/" class="brand text-gradient">BD.</a>
+    
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/professional" routerLinkActive="active">Portfolio</a>
+      <a routerLink="/personal" routerLinkActive="active">Services</a>
+      <a routerLink="/blog" routerLinkActive="active">Blog</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" (click)="themeService.toggleTheme()">
+        <span class="material-icons">
+          {{ themeService.currentTheme() === 'light' ? 'dark_mode' : 'light_mode' }}
+        </span>
+      </button>
+      <a routerLink="/contact" class="btn secondary-btn hire-btn">Hire Me</a>
+    </div>
+
+    <!-- Mobile Menu Button (Optional, can expand later) -->
+    <button class="mobile-menu-btn">
+      <span class="material-icons">menu</span>
+    </button>
+  </div>
+</nav>
